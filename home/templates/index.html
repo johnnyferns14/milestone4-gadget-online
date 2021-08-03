@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block heroimage %}
+    <div class="hero-image-wrapper" >
+        <img src="{% static 'home/images/gadget-hero.jpeg' %}" alt="hero-image">
+    </div>
+{% endblock %}
 
 {% block content %}
 <p>Index Page</p>
