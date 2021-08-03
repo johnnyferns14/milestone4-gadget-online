@@ -9,5 +9,9 @@ def view_gadget(request):
 
 def add_category(request):
     form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid:
+            form.save()
     context = {'form': form}
     return render(request, 'add_category.html', context)
