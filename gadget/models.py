@@ -1,3 +1,21 @@
 from django.db import models
 
-# Create your models here.
+
+class Category(models.Model):
+    name = models.CharField(max_length=30, blank=False, null=False)
+
+    def __str__(self):
+        return self.name
+
+
+class Product(models.Model):
+    name = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_name')
+    title = models.CharField(max_length=50, null=False, blank=False)
+    description = models.TextField(blank=False, null=False)
+    asin = models.CharField(max_length=10, primary_key=True, null=False, blank=False)
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False)
+    quantity = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
