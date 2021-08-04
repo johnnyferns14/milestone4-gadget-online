@@ -1,4 +1,70 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+.font-navbar{
+    /* font-family: 'Black Ops One', cursive; */
+    font-family: 'Electrolize', sans-serif;
+    font-size: 16px;
+}
+
 .hero-image-wrapper{
     max-width: 100%;
     border: solid 1px red;
 }
+
+.category{
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.nav-custom{
+  background-color: maroon;
+}
+
+.hide-reveal{
+  padding: 8px;
+  width: 8rem;
+  background-color: orange;
+  
+}
+
+.hide-reveal:hover{
+  display: none;
+  transition: 5s ease-in;
+}
+
+.login-wrapper{
+  width: 500px;
+  height: 300px;
+  position: fixed;
+  top: 60px;
+  right: -460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/*   border: 3px solid red; */
+  padding: 0;
+}
+
+.login-btn{
+  height: 150px;
+  width: 50px;
+  border: 2px solid yellow;
+  
+}
+
+.vertical-writing{
+/*   transform: rotate(-90deg); */
+  writing-mode: vertical-rl;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.login-page-reveal{
+  right: 10px;
+  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.2));
+  transition: ease in-out 10s;
+  
+}
+
