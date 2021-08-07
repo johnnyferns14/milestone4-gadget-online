@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Category Page</p>
+
+<hr>
+
+{% for category in categories %}
+    <div>
+        <p>{{ category.name }}</p>
+        <a href="{% url 'update_category' category.id %}">Update</a>
+        <a href="{% url 'delete_category' category.id %}">Delete</a>
+
+    </div>
+{% endfor %}
+
+<hr>
+
+{% endblock %}

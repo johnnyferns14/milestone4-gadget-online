@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% for product in products %}
+    <p>{{ product.description }}</p>
+{% endfor %}
+
 <p>Gadget Page</p>
 {% endblock %}
