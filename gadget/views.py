@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .forms import CategoryForm, ProductForm
 from .models import Category, Product
 
@@ -12,10 +13,16 @@ def view_category(request):
 
 
 def add_category(request):
+    category = Category.objects.all()
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            form.save()
+            if not category:
+                form.save()
+                messages.success(request, 'Category added successfully.')
+            else:
+                messages.error(request, 'Category already exists')
+                return redirect('view_category')
     else:
         form = CategoryForm()
     context = {'form': form}

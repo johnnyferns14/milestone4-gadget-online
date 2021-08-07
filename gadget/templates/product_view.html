@@ -6,15 +6,19 @@
 
 <hr>
 
-{% for product in products %}
-    <div>
-        <p>{{ product.title }}</p>
-        <img src="{{ product.image.url }}" alt="{{ product.title }}">
-        <a href="{% url 'update_product' product.asin %}">Update</a>
-        <a href="{% url 'delete_product' product.asin %}">Delete</a>
-
+<div class="container mb-5">
+    <div class="row card-row">
+        {% for product in products %}
+        <div class="card shadow gadget-custom-card mt-5">
+            <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
+            <div class="card-body">
+                <h4 class="card-title">{{ product.title }}</h4>
+                <small class="card-text">Me</small>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-{% endfor %}
+</div>
 
 <hr>
 

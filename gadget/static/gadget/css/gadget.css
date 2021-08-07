@@ -1,0 +1,10 @@
+.gadget-custom-card {
+    max-width: 300px;
+    margin: auto;
+    min-height: 300px;
+}
+
+.image-style {
+    height: 200px;
+    object-fit: cover;
+}
