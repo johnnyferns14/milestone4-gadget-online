@@ -50,7 +50,7 @@
                     <a class="nav-link" href="#">PROFILE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LOGOUT</a>
+                    <a class="nav-link" href="{% url 'account_logout' %}">LOGOUT</a>
                 </li>
                 {% else %}
                 <li class="nav-item dropdown">
@@ -59,15 +59,15 @@
                         MEMBERS AREA
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">SIGN-UP</a>
-                            <a class="dropdown-item" href="#">LOGIN</a>        
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">SIGN-UP</a>
+                            <a class="dropdown-item" href="{% url 'account_login' %}">LOGIN</a>        
                     </div>
                 </li>
                 
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-lg fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="badge rounded-pill badge-danger custom-badge">6</span></a>
+                    <span class="badge rounded-pill badge-danger custom-badge">{{ item.product.quantity }}</span></a>
                 </li></a>
             </ul>
         </div>
