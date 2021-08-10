@@ -23,7 +23,9 @@ urlpatterns = [
     path('', include('home.urls')),
     path('gadget/', include('gadget.urls')),
     path('accounts/', include('allauth.urls')),
+    path('product_review/', include('reviews.urls')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
