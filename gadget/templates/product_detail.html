@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block nav-secondary %}
+
+{% endblock %}
+
+{% block content %}
+
+<p>Product Page</p>
+
+<hr>
+
+<div class="container mb-5">
+    <h1>Product: {{ product.title }}</h1>
+    <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
+    <h6>Description: {{ product.description }}</h6>
+    <p>Quantity: {{ product.quantity }}</p>
+
+</div>
+
+<hr>
+
+{% endblock %}

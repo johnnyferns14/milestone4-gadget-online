@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .forms import CategoryForm, ProductForm
@@ -90,7 +90,11 @@ def delete_product(request, product_id):
     return redirect('view_product')
 
 
-# def search_product(request):
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, asin=product_id)
 
-#     context = {}
-#     return render(request, 'search_list.html', context)
+    context = {
+        'product': product
+
+    }
+    return render(request, 'product_detail.html', context)

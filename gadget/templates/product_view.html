@@ -3,17 +3,6 @@
 
 {% block nav-secondary %}
 
-<div class="container-fluid my-2">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6 text-center">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</div>
-
 {% endblock %}
 
 {% block content %}
@@ -25,13 +14,16 @@
 <div class="container mb-5">
     <div class="row card-row">
         {% for product in products %}
-        <div class="card shadow gadget-custom-card mt-5">
-            <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
-            <div class="card-body">
-                <h4 class="card-title">{{ product.title }}</h4>
-                <small class="card-text">Me</small>
+        <a href="{% url 'product_detail' product.asin %}">
+            <div class="card shadow gadget-custom-card mt-5">
+                <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ product.title }}</h4>
+                    <small class="card-text">Me</small>
+                </div>
+
             </div>
-        </div>
+        </a>
         {% endfor %}
     </div>
 </div>
