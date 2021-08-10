@@ -51,8 +51,8 @@
             </tr>
             <tr>
                 <td>
-                <a href="{% url 'gadgets_view' %}" class="btn btn-primary">Keep Shopping</a>
-                <a href="{% url 'checkout' %}" class="btn btn-primary">Secure Checkout</a>
+                <a href="{% url 'view_product' %}" class="btn btn-primary">Keep Shopping</a>
+                <a href="" class="btn btn-primary">Secure Checkout</a>
                 </td>
 
             </tr>
@@ -64,9 +64,5 @@
     <p>Your bag is empty</p>
     {% endif %}
 </div>
-
-{% endblock %}
-
-{% postloadjs %}
 
 {% endblock %}

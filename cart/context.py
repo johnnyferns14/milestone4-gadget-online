@@ -11,7 +11,7 @@ def cartItems(request):
     cart = request.session.get('cart', {})
 
     for product_id, quantity in cart.items():
-        product = get_object_or_404(Product, asins=product_id)
+        product = get_object_or_404(Product, asin=product_id)
         total += quantity * product.price
         item_count += quantity
         cart_items.append({

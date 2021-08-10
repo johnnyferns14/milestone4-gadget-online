@@ -3,11 +3,11 @@ from django.contrib import messages
 from gadget.models import Product
 
 
-def viewCart(request):
-    return render(request, "cart/view_cart.html")
+def view_cart(request):
+    return render(request, "view_cart.html")
 
 
-def addToCart(request, product_id):
+def add_cart(request, product_id):
     product = Product.objects.get(asin=product_id)
     quantity = int(request.POST.get("quantity"))
     redirect_url = request.POST.get("redirect_url")
@@ -17,7 +17,7 @@ def addToCart(request, product_id):
         cart[product_id] += quantity
     else:
         cart[product_id] = quantity
-        messages.success(request, f'Your item {product.name} has been added to the cart.')
+        messages.success(request, f'Your item {product.title} has been added to the cart.')
     request.session["cart"] = cart
     print(request.session["cart"])
     return redirect(redirect_url)

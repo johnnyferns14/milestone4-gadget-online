@@ -1,24 +1,67 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block nav-secondary %}
 
 {% endblock %}
 
+
 {% block content %}
 
-<p>Product Page</p>
+<h1>Product details</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{ product.image.url }}">
+        </div>
+        <div class="col-md-5">
+            <h4>{{ product.title }}</h4>
+            <h6>{{ product.description }}</h6>
+            <p>ASIN: {{ product.asin }}</p>
+            <h6>Price: {{ product.price }}</h6>
+            <h6>Quantity: {{ product.quantity }}</h6>
+            <form class="form" method="POST" action="{% url 'add_cart' product.asin %}">
+                {% csrf_token %}
+                <div class="form-row w-50">
+                    <div class="col-md-12">
+                        <p>Quantity:</p>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" type="number" , name="quantity" , value="1" , min="1" ,
+                                    max="99" data-item_id="{{ product.asin }}" id="id_qty_{{ prouct.asin }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Add to Wishlist</a>
+                        <input class="btn btn-primary" type="submit" , value="Add To Wishlist">
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'product_view' %">Keep Shopping</a>
+                        <input class="btn btn-primary" type="submit", value="Add To Cart">
+                    </div>                 
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
 
-<hr>
 
-<div class="container mb-5">
-    <h1>Product: {{ product.title }}</h1>
-    <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
-    <h6>Description: {{ product.description }}</h6>
-    <p>Quantity: {{ product.quantity }}</p>
+            </form>
+        </div>
 
-</div>
+    </div>
+</div>    
+    <section class="comments-few">
+        <h3>Customer Reviews</h3>
+        <div class="card">
+            <div class="card-body">
+                This is some text within a card body.
+            </div>
+        </div>
 
-<hr>
+        <div class="show-reviews">
+            <a href="" class="btn btn-primary btn-lg active" role="button"
+                aria-pressed="true">More reviews</a>
+        </div>
+
+    </section>
 
 {% endblock %}
