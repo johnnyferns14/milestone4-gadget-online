@@ -23,7 +23,7 @@
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark font-navbar">
-        <a class="navbar-brand" href="#">NAVBAR</a>
+        <a class="navbar-brand" href="{% url 'home' %}">GADGET-360</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'home' %}">HOME<span class="sr-only">(current)</span></a>
                 </li>
                
                 <li class="nav-item dropdown">
@@ -67,7 +67,7 @@
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-lg fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="badge rounded-pill badge-danger">10</span></a>
+                    <span class="badge rounded-pill badge-danger custom-badge">6</span></a>
                 </li></a>
             </ul>
         </div>
@@ -86,10 +86,25 @@
         </div>
     </div>
 
-    {% block heroimage %}
+
+
+
+    {% block nav-secondary %}
     {% endblock %}
 
+    {% block heroimage %}
+    {% endblock %}
+        <p>Messages:</p>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
     {% block content %}
+
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.db.models import Q
 from .forms import CategoryForm, ProductForm
 from .models import Category, Product
 
@@ -17,12 +18,14 @@ def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            if not category:
+            for item in category:
+                if item.name:
+                    messages.error(request, 'Category already exists')
+                    return redirect('view_category')
+                
+            else:
                 form.save()
                 messages.success(request, 'Category added successfully.')
-            else:
-                messages.error(request, 'Category already exists')
-                return redirect('view_category')
     else:
         form = CategoryForm()
     context = {'form': form}
@@ -85,3 +88,9 @@ def delete_product(request, product_id):
     product = Product.objects.get(asin=product_id)
     product.delete()
     return redirect('view_product')
+
+
+# def search_product(request):
+
+#     context = {}
+#     return render(request, 'search_list.html', context)
