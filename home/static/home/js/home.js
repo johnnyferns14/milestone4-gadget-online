@@ -5,3 +5,6 @@ loginButton.addEventListener('click', function() {
   loginWrapper.classList.toggle("login-page-reveal");
   loginWrapper.classList.toggle("");
 });
+
+
+$('.toast').toast(option)

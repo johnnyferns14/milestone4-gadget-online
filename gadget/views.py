@@ -18,14 +18,8 @@ def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            for item in category:
-                if item.name:
-                    messages.error(request, 'Category already exists')
-                    return redirect('view_category')
-                
-            else:
-                form.save()
-                messages.success(request, 'Category added successfully.')
+            form.save()
+            messages.success(request, 'Category added successfully.')
     else:
         form = CategoryForm()
     context = {'form': form}
