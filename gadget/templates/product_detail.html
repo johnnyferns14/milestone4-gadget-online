@@ -49,19 +49,27 @@
 
     </div>
 </div>    
-    <section class="comments-few">
-        <h3>Customer Reviews</h3>
-        <div class="card">
-            <div class="card-body">
-                This is some text within a card body.
-            </div>
-        </div>
+<h1>Your review:</h1>
 
-        <div class="show-reviews">
-            <a href="" class="btn btn-primary btn-lg active" role="button"
-                aria-pressed="true">More reviews</a>
-        </div>
+<div class="container">
+    <form method="POST", action="{% url 'add_review' product.asin %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit Review">
 
-    </section>
+    </form>
+</div>
+
+<h1>User Reviews</h1>
+
+{% for review in reviews %}
+    <div class="container">
+        <h2>{{ review.review_title }}</h2>
+        <hr/>
+        <p>{{ review.review_body }}</p>
+        <p> Created by: {{ review.author }} on {{ review.date_created }}</p>
+    </div>
+
+{% endfor %}
 
 {% endblock %}

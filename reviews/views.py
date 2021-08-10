@@ -4,8 +4,8 @@ from gadget.models import Product
 from .forms import ProductReviewForm
 
 
-def viewReview(request, product_id):
-    product = get_object_or_404(Product, asins=product_id)
+def view_review(request, product_id):
+    product = get_object_or_404(Product, asin=product_id)
     reviews = ProductReview.objects.filter(product=product_id)
     context = {
         'product': product,
@@ -14,8 +14,8 @@ def viewReview(request, product_id):
     return render(request, 'view_review.html', context)
 
 
-def addReview(request, product_id):
-    product = get_object_or_404(Product, asins=product_id)
+def add_review(request, product_id):
+    product = get_object_or_404(Product, asin=product_id)
     if request.method == 'POST':
         form = ProductReviewForm(request.POST)
         if form.is_valid():
