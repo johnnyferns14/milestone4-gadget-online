@@ -20,7 +20,7 @@
             <p>ASIN: {{ product.asin }}</p>
             <h6>Price: {{ product.price }}</h6>
             <h6>Quantity: {{ product.quantity }}</h6>
-            <form class="form" method="POST" action="{% url 'add_cart' product.asin %}">
+        <form class="form" method="POST" action="{% url 'add_cart' product.asin %}">
                 {% csrf_token %}
                 <div class="form-row w-50">
                     <div class="col-md-12">
@@ -44,7 +44,7 @@
                 </div>
 
 
-            </form>
+        </form>
         </div>
 
     </div>
