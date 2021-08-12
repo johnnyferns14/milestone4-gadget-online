@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Your review:</h1>
 
+<div class="container">
+    <form method="POST", action="{% url 'add_review' product.asin %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit Review">
+
+    </form>
+</div>
