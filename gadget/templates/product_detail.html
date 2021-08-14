@@ -11,8 +11,8 @@
 <h1>Product details</h1>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-5">
-            <img src="{{ product.image.url }}">
+        <div class="col-md-6">
+            <img class='w-75' src="{{ product.image.url }}">
         </div>
         <div class="col-md-5">
             <h4>{{ product.title }}</h4>
@@ -20,9 +20,9 @@
             <p>ASIN: {{ product.asin }}</p>
             <h6>Price: {{ product.price }}</h6>
             <h6>Quantity: {{ product.quantity }}</h6>
-        <form class="form" method="POST" action="{% url 'add_cart' product.asin %}">
+            <form class="form" method="POST" action="{% url 'add_cart' product.asin %}">
                 {% csrf_token %}
-                <div class="form-row w-50">
+                <div class="form-row w-75">
                     <div class="col-md-12">
                         <p>Quantity:</p>
                         <div class="form-group">
@@ -34,12 +34,9 @@
                     </div>
                     <div class="col-12">
                         <a href="">Add to Wishlist</a>
-                        <input class="btn btn-primary" type="submit" , value="Add To Wishlist">
-                    </div>
-                    <div class="col-12">
-                        <a href="{% url 'product_view' %">Keep Shopping</a>
+                        <a href="{% url 'view_product' %}">Keep Shopping</a>
                         <input class="btn btn-primary" type="submit", value="Add To Cart">
-                    </div>                 
+                    </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
 
@@ -53,23 +50,23 @@
 
 <div class="container">
     <form method="POST", action="{% url 'add_review' product.asin %}">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit Review">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Submit Review">
 
-    </form>
-</div>
+            </form>
+        </div>
 
-<h1>User Reviews</h1>
+        <h1>User Reviews</h1>
 
-{% for review in reviews %}
-    <div class="container">
-        <h2>{{ review.review_title }}</h2>
-        <hr/>
-        <p>{{ review.review_body }}</p>
-        <p> Created by: {{ review.author }} on {{ review.date_created }}</p>
-    </div>
+        {% for review in reviews %}
+        <div class="container">
+            <h2>{{ review.review_title }}</h2>
+            <hr />
+            <p>{{ review.review_body }}</p>
+            <p> Created by: {{ review.author }} on {{ review.date_created }}</p>
+        </div>
 
-{% endfor %}
+        {% endfor %}
 
-{% endblock %}
+        {% endblock %}
