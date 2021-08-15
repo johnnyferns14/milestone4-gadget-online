@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'reviews',
     'cart',
     'useraccount',
+    'checkout',
+    'django_countries'
 ]
 
 MIDDLEWARE = [
