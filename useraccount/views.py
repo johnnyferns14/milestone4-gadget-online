@@ -4,6 +4,9 @@ from gadget.models import Category, Product
 from .forms import CategoryForm, ProductForm
 
 
+
+
+
 def add_category(request):
     category = Category.objects.all()
     if request.method == 'POST':
