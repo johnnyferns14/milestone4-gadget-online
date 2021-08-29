@@ -169,6 +169,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-FREE_DELIVERY_LIMIT = 60
+MINIMUM_PURCHASE_LIMIT = 60
 STANDARD_DELIVERY_RATE = 10
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
