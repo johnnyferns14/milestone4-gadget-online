@@ -80,6 +80,10 @@ TEMPLATES = [
                 'gadget.category_context.category_navbar',
                 'cart.context.cartItems',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

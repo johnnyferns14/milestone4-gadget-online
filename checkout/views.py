@@ -1,5 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from .forms import OrderForm
 
 
 def checkout(request):
-    return render(request, 'checkout.html')
+    cart = request.session.get('cart', {})
+    if not cart:
+        messages.error(request, 'Cart is empty.')
+        return redirect(reverse('view_gadgets'))
+
+    order_form = OrderForm()
+    template = 'checkout.html'
+    context = {
+        'order_form': order_form,
+    }
+
+    return render(request, template, context)
