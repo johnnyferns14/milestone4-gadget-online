@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
 from .forms import OrderForm
+from cart.context import cartItems
+
+import stripe
 
 
 def checkout(request):
@@ -14,6 +17,14 @@ def checkout(request):
         messages.error(request, 'Cart is empty.')
         return redirect(reverse('view_gadgets'))
 
+    current_cart = cartItems(request)
+    total = current_cart['grand_total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
     order_form = OrderForm()
     template = 'checkout.html'
     context = {
