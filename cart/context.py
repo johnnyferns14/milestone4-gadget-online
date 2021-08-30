@@ -22,7 +22,7 @@ def cartItems(request):
 
     if total < settings.MINIMUM_PURCHASE_LIMIT:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_RATE / 100)
-        free_delivery_target = settings.FREE_DELIVERY_LIMIT - total
+        free_delivery_target = settings.MINIMUM_PURCHASE_LIMIT - total
     else:
         delivery = 0
         free_delivery_target = 0
@@ -35,7 +35,7 @@ def cartItems(request):
         "item_count": item_count,
         "delivery": delivery,
         "free_delivery_target": free_delivery_target,
-        "free_delivery_limit": settings.FREE_DELIVERY_LIMIT,
+        "free_delivery_limit": settings.MINIMUM_PURCHASE_LIMIT,
         "grand_total": grand_total
     }
 
