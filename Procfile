@@ -1,0 +1,1 @@
+web: gunicorn gadget360.wsgi:application
