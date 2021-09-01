@@ -6,6 +6,12 @@ from .forms import CategoryForm, ProductForm
 
 
 
+def profile(request):
+    template = 'profiles/profile.html'
+    context = {}
+    return render(request, template, context)
+
+
 
 def add_category(request):
     category = Category.objects.all()
