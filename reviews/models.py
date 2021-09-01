@@ -1,10 +1,10 @@
 from django.db import models
 from gadget.models import Product
-from django.contrib.auth.models import User
+from useraccount.models import UserAccount
 
 
 class ProductReview(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
+    author = models.ForeignKey(UserAccount, on_delete=models.CASCADE, editable=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     review_title = models.CharField(max_length=255, null=False, blank=False)
     review_body = models.TextField(null=False, blank=False)

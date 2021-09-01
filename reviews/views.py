@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.contrib.auth.models import User
+
+from useraccount.models import UserAccount
 from django.contrib import messages
 from .models import ProductReview
 from gadget.models import Product
@@ -25,7 +26,7 @@ def add_review(request, product_id):
                 form = form.save(commit=False)
                 form.review_title = request.POST['review_title']
                 form.review_body = request.POST['review_body']
-                form.author = User.objects.get(user=request.user)
+                form.author = UserAccount.objects.get(user=request.user)
                 form.product = product
                 form.save()
                 messages.success(request, 'You successfully added review!')
