@@ -1,26 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from gadget.models import Category, Product
-from .forms import CategoryForm, ProductForm
+from .forms import CategoryForm, ProductForm, UserAccountForm
 from .models import UserAccount
 
 
-
-
 def profile(request):
-     profile = get_object_or_404(UserProfile, user=request.user)
-    
+    profile = get_object_or_404(UserAccount, user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserAccountForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Account updated successfully')
         else:
             messages.error(request,
                            ('Update failed. Please ensure '
                             'the form is valid.'))
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserAccountForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
