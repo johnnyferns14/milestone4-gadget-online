@@ -21,7 +21,7 @@ def profile(request):
         form = UserAccountForm(instance=profile)
     orders = profile.orders.all()
 
-    template = 'useraccount/profile.html'
+    template = 'useraccount/profiles.html'
     context = {
         'form': form,
         'orders': orders,
@@ -57,7 +57,7 @@ def add_category(request):
     else:
         form = CategoryForm()
     context = {'form': form}
-    return render(request, 'add_category.html', context)
+    return render(request, 'useraccount/add_category.html', context)
 
 
 def update_category(request, category_id):
@@ -71,7 +71,7 @@ def update_category(request, category_id):
         'form': form
         }
 
-    return render(request, 'update_category.html', context)
+    return render(request, 'useraccount/update_category.html', context)
 
 
 def delete_category(request, category_id):
@@ -88,7 +88,7 @@ def add_product(request):
     else:
         form = ProductForm()
     context = {'form': form}
-    return render(request, 'add_product.html', context)
+    return render(request, 'useraccount/add_product.html', context)
 
 
 def update_product(request, product_id):
@@ -101,7 +101,7 @@ def update_product(request, product_id):
         'product': product,
         'form': form
         }
-    return render(request, 'update_product.html', context)
+    return render(request, 'useraccount/update_product.html', context)
 
 
 def delete_product(request, product_id):
