@@ -54,6 +54,7 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        # Auto-update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -111,7 +112,7 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.loads(cart).items():
+                for product_id, item_data in json.loads(cart).items():
                     order = order.objects.create(
                         full_name=shipping_details.name,
                         email=billing_details.email,
@@ -124,7 +125,7 @@ class StripeWH_Handler:
                         original_cart=cart,
                         stripe_pid=pid,
                     )
-                    product = Product.objects.get(id=item_id)
+                    product = Product.objects.get(id=product_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,

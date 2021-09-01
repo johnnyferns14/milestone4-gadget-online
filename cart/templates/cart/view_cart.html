@@ -23,7 +23,7 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>
-                    <img class="img-fluid w-50" src="{{ item.product.imageurls }}" alt="{{ item.product.name }}">
+                    <img class="img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ item.product.title }}">
                 </td>
                 <td>
                     <p>{{ item.product.name }}</p>
@@ -52,7 +52,7 @@
             <tr>
                 <td>
                 <a href="{% url 'view_product' %}" class="btn btn-primary">Keep Shopping</a>
-                <a href="" class="btn btn-primary">Secure Checkout</a>
+                <a href="{% url 'checkout' %}" class="btn btn-primary">Secure Checkout</a>
                 </td>
 
             </tr>

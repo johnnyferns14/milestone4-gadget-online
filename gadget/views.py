@@ -9,7 +9,7 @@ def view_category(request):
     context = {
         'categories': categories
         }
-    return render(request, 'category_view.html', context)
+    return render(request, 'gadget/category_view.html', context)
 
 
 def view_product(request):
@@ -17,7 +17,7 @@ def view_product(request):
     context = {
         'products': products
         }
-    return render(request, 'product_view.html', context)
+    return render(request, 'gadget/product_view.html', context)
 
 
 def product_detail(request, product_id):
@@ -27,4 +27,4 @@ def product_detail(request, product_id):
         'product': product
 
     }
-    return render(request, 'product_detail.html', context)
+    return render(request, 'gadget/product_detail.html', context)

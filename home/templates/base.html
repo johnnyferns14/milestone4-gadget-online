@@ -15,6 +15,10 @@
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
      
 
     <title>GADGET</title>
@@ -48,7 +52,7 @@
                 </li>
                  {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PROFILE</a>
+                    <a class="nav-link" href="{% url 'profile' %}">PROFILE</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">LOGOUT</a>
@@ -68,7 +72,7 @@
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-lg fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="badge rounded-pill badge-danger custom-badge">{{ item.quantity }}</span></a>
+                    <span class="badge rounded-pill badge-danger custom-badge">{{ item_count }}</span></a>
                 </li></a>
             </ul>
         </div>

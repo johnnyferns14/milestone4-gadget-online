@@ -4,7 +4,7 @@ from gadget.models import Product
 
 
 def view_cart(request):
-    return render(request, "view_cart.html")
+    return render(request, "cart/view_cart.html")
 
 
 def add_cart(request, product_id):

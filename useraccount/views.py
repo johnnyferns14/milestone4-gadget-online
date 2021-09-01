@@ -21,7 +21,7 @@ def profile(request):
         form = UserAccountForm(instance=profile)
     orders = profile.orders.all()
 
-    template = 'profiles/profile.html'
+    template = 'useraccount/profile.html'
     context = {
         'form': form,
         'orders': orders,
