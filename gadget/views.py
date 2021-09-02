@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Category, Product
@@ -15,8 +15,8 @@ def view_category(request):
 def view_product(request):
     products = Product.objects.all()
     context = {
-        'products': products
-        }
+        'products': products,
+    }
     return render(request, 'gadget/product_view.html', context)
 
 

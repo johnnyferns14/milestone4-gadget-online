@@ -113,18 +113,6 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for product_id, item_data in json.loads(cart).items():
-                    order = order.objects.create(
-                        full_name=shipping_details.name,
-                        email=billing_details.email,
-                        phone_number=shipping_details.phone,
-                        country=shipping_details.address.country,
-                        postcode=shipping_details.address.postal_code,
-                        town_or_city=shipping_details.address.city,
-                        street_address1=shipping_details.address.line1,
-                        street_address2=shipping_details.address.line2,
-                        original_cart=cart,
-                        stripe_pid=pid,
-                    )
                     product = Product.objects.get(id=product_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
