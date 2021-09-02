@@ -62,7 +62,7 @@ def checkout(request):
             order.save()
             for product_id, item_data in cart.items():
                 try:
-                    product = Product.objects.get(id=product_id)
+                    product = Product.objects.get(asin=product_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,

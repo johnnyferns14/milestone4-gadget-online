@@ -47,7 +47,7 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.MINIMUM_PURCHASE_LIMIT:
-            sdp = settings.STANDARD_DELIVERY_PERCENTAGE
+            sdp = settings.STANDARD_DELIVERY_RATE
             self.delivery_cost = self.order_total * sdp / 100
         else:
             self.delivery_cost = 0
