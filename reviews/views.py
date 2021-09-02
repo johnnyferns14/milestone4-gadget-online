@@ -14,7 +14,7 @@ def view_review(request, product_id):
         'product': product,
         'reviews': reviews,
     }
-    return render(request, 'view_review.html', context)
+    return render(request, 'reviews/view_review.html', context)
 
 
 def add_review(request, product_id):
@@ -29,11 +29,11 @@ def add_review(request, product_id):
                 form.author = UserAccount.objects.get(user=request.user)
                 form.product = product
                 form.save()
-                messages.success(request, 'You successfully added review!')
+                messages.success(request, 'You successfully added the review!')
                 return redirect('product_detail', product_id)
         else:
             form = ProductReviewForm()
-        return redirect(reverse('product_detail', args=(product_id,)))
+        return redirect(reverse('product_detail', product_id))
     else:
         messages.error(request, 'You need to be logged in to review.')
         return redirect('home')
@@ -43,4 +43,4 @@ def add_review(request, product_id):
         'product': product,
         'product_id': product_id
     }
-    return render(request, 'add_review.html', context)
+    return render(request, 'reviews/add_review.html', context)

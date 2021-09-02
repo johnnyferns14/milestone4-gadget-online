@@ -37,9 +37,9 @@
                 <td>
                     <p>{{total|floatformat:2}}</p>
             </tr>
-
-            <tr>
-            <td>
+                {% endfor %}
+            <tr >
+            <td class="text-right">
                 <h6>Total: {{ total|floatformat:2 }}</h6>
                 <h6>Delivery: {{ delivery|floatformat:2 }}</h6>
                 <h6>Grand Total: {{ grand_total|floatformat:2 }}</h6>
@@ -47,7 +47,7 @@
                 <p>You need to spend more {{ free_delivery_target }} to avail free delivery. </p>
                 {% endif %}
             </td>
-            {% endfor %}
+            
             </tr>
             <tr>
                 <td>
