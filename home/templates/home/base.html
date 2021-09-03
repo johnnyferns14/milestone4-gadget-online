@@ -103,8 +103,19 @@
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-            {% include 'includes/toasts/success.html' %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/error_toast.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/warning_toast.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/success_toast.html' %}
+                {% else %}
+                    {% include 'includes/toasts/info_toast.html' %}
+                {% endif %}
+            {% endwith %}
         {% endfor %}
+
     </ul>
     {% endif %}
 
