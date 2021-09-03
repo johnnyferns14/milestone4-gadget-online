@@ -1,5 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +17,10 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-{% block extracss %}
+    {% block extracss %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock %}
-     
+    {% endblock %}
+
 
     <title>GADGET</title>
 </head>
@@ -38,19 +39,20 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">HOME<span class="sr-only">(current)</span></a>
                 </li>
-               
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{% url 'view_product' %}" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{% url 'view_product' %}" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         GADGETS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         {% for category in categories %}
-                            <a class="dropdown-item" href="{% url 'view_product' %}?name={{ category.name }} ">{{ category.name }}</a>
+                        <a class="dropdown-item"
+                            href="{% url 'view_product' %}?name={{ category.name }} ">{{ category.name }}</a>
                         {% endfor %}
                     </div>
                 </li>
-                 {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %}">PROFILE</a>
                 </li>
@@ -64,15 +66,16 @@
                         MEMBERS AREA
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">SIGN-UP</a>
-                            <a class="dropdown-item" href="{% url 'account_login' %}">LOGIN</a>        
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">SIGN-UP</a>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">LOGIN</a>
                     </div>
                 </li>
-                
+
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-lg fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="badge rounded-pill badge-danger custom-badge">{{ item_count }}</span></a>
+                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-lg fa fa-shopping-cart"
+                            aria-hidden="true"></i>
+                        <span class="badge rounded-pill badge-danger custom-badge">{{ item_count }}</span></a>
                 </li></a>
             </ul>
         </div>
@@ -96,14 +99,14 @@
 
     {% block heroimage %}
     {% endblock %}
-    
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li class="{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            {% include 'includes/toasts/success.html' %}
+        {% endfor %}
+    </ul>
+    {% endif %}
 
     {% block content %}
 
@@ -115,9 +118,9 @@
     <script src="https://js.stripe.com/v3/"></script>
 
 
-{% block postloadjs %}
+    {% block postloadjs %}
 
-{% endblock %}
+    {% endblock %}
 
 
 </body>

@@ -1,0 +1,66 @@
+<div class="toast custom-toast rounded-0 border-top-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+    <div class="arrow-up arrow-success"></div>
+    <div class="w-100 toast-capper bg-success"></div>
+    <div class="toast-header bg-white text-dark ">
+        <strong class="mr-auto fs-4">Success!</strong>
+        <button type="button" class="ms-3 mb-1 close text-dark" data-bs-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {% if grand_total > 0%}
+        <div class="btn-wrapper">
+            <a href="{% url 'view_cart' %}" class="btn checkout-card-btn ms-5">
+                <span class="btn-text">Cart View</span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="toast-body bg-light">
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+            
+        </div>
+        {% if grand_total and not on_profile_page %}
+            <p class="logo-font bg-light text-dark py-1">Your Cart ({{ product_count }})</p>
+            <div class="bag-notification-wrapper">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            {% if item.product.image %}
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>x
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-dark">
+                        Total(excl delivery charge): 
+                        <span class="float-right">£{{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if total < 15 %}
+                        <a href="{% url 'products' %}" class="btn bag-checkout-card-btn">
+                            <span class="text-danger">Min spend £15</span>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'checkout' %}" class="btn checkout-card-btn">
+                            <span class="text-uppercase">Go To Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
