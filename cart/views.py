@@ -21,3 +21,40 @@ def add_cart(request, product_id):
     request.session["cart"] = cart
     print(request.session["cart"])
     return redirect(redirect_url)
+
+def edit_cart(request, product_id):
+    """ Adjust the quantity of the specified product to the shopping bag """
+
+    product = get_object_or_404(Product, asin=product_id)
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+
+        cart[item_id] = quantity
+        messages.success(request, f'Updated {product.title} quantity to the {cart[product_id]}')
+
+    else:
+        cart.pop(product_id)
+        messages.success(request, f'Removed {product.title} from your shopping cart')
+
+    request.session['cart'] = cart
+
+    return redirect(reverse('view_cart'))
+
+
+def subtract_from_cart(request, product_id):
+    """Remove item from the shopping bag """
+    product = get_object_or_404(Product, asin=product_id)
+
+    try:
+        cart = request.session.get('cart', {})
+        cart.pop(product_id)
+        messages.success(request, f'Removed {product.title} from your shopping cart')
+
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)
