@@ -4,7 +4,7 @@ from useraccount.models import UserAccount
 
 
 class ProductReview(models.Model):
-    author = models.ForeignKey(UserAccount, on_delete=models.CASCADE, editable=False)
+    author = models.ForeignKey(UserAccount, null=False, blank=False, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     review_title = models.CharField(max_length=255, null=False, blank=False)
     review_body = models.TextField(null=False, blank=False)

@@ -13,8 +13,9 @@ def view_review(request, product_id):
     context = {
         'product': product,
         'reviews': reviews,
+        'product_id': product_id
     }
-    return render(request, 'reviews/view_review.html', context)
+    return render(request, 'gadget/product_detail.html', context)
 
 
 def add_review(request, product_id):

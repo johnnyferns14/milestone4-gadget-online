@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Category, Product
+from reviews.forms import ProductReviewForm
+from reviews.models import ProductReview
 
 
 def view_category(request):
@@ -40,9 +42,13 @@ def view_product(request):
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, asin=product_id)
+    form = ProductReviewForm()
+    reviews = ProductReview.objects.filter(product=product_id)
 
     context = {
-        'product': product
+        'product': product,
+        'reviews': reviews,
+        'form': form,
 
     }
     return render(request, 'gadget/product_detail.html', context)

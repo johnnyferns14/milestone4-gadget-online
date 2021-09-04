@@ -14,12 +14,7 @@
 <!-- Viewing products by category -->
 {% block content %}
 
-<div class="col-md-6 text-center">
-    <form class="form-inline" method="GET" action="{% url 'view_product' %}">
-        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</div>
+
 
 <div>
     <a href="{% url 'view_product' %}">BUY NOW</a>
