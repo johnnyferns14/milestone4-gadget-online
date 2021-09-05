@@ -33,9 +33,9 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <a class="btn btn-primary" href="">Add to Wishlist</a>
-                        <a class="btn btn-primary" href="{% url 'view_product' %}">Keep Shopping</a>
-                        <input class="btn btn-primary" type="submit" , value="Add To Cart">
+                        <a class="btn btn-orange-border" href="">Add to Wishlist</a>
+                        <a class="btn btn-orange-border" href="{% url 'view_product' %}">Keep Shopping</a>
+                        <input class="btn btn-orange" type="submit" , value="Add To Cart">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
@@ -57,8 +57,10 @@
                     {% csrf_token %}
                     {{ form| crispy }}
                     <div class="text-right mt-3">
-                        <a class="btn btn-primary " href="{% url 'product_detail' product.asin %}">Cancel</a>
-                        <button class="btn btn-primary ms-1" type="submit">Add Review</button>
+                        <a class="btn btn-orange-border " href="{% url 'product_detail' product.asin %}">Cancel</a>
+                        <button class="btn btn-orange ms-1" type="submit">Add Review</button>
+                        {% else %}
+                        <p>Please <a href="{% url 'account_login' %}">login</a> to post a review</p>
                     </div>
                 </form>
             </div>

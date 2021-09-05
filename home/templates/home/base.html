@@ -28,7 +28,7 @@
 <body>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark font-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark font-navbar navbar-color">
         <a class="navbar-brand" href="{% url 'home' %}">GADGET-360</a>
         <div class="col-md-6 text-center">
             <form class="form-inline" method="GET" action="{% url 'view_product' %}">
@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">HOME<span class="sr-only">(current)</span></a>
+                    <a class="nav-link color-navbar" href="{% url 'home' %}">HOME<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown">

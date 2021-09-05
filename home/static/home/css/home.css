@@ -1,10 +1,25 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
+
+body{
+    background-color: #343a40!important;
+    color: #ffffff
+    
+}
+
 .font-navbar{
     /* font-family: 'Black Ops One', cursive; */
     font-family: 'Electrolize', sans-serif;
     font-size: 16px;
+}
+
+/* .navbar-dark .navbar-nav .nav-link {
+    color: rgb(204, 85, 0, .5)
+} */
+
+.navbar-color{
+    background-color: rgb(204, 85, 0)
 }
 
 .hero-image-wrapper{
@@ -23,8 +38,16 @@
   padding: 1rem;
 }
 
-.nav-custom{
-  background-color: maroon;
+.btn-orange {
+    color: #fff;
+    background-color: rgb(204, 85, 0);
+    border-color: rgb(204, 85, 0);
+}
+
+.btn-orange-border {
+    color: rgb(204, 85, 0);
+    background-color: #fff;
+    border-color: rgb(204, 85, 0);
 }
 
 .hide-reveal{
