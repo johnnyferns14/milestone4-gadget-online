@@ -84,9 +84,9 @@
 
                     {% if request.user.is_authenticated  %}
                     <div class="mr-auto">
-                        <a href="#"><small>Edit</small></a>
+                        <a href="{% url 'edit_review' product.asin review.id %}"><small>Edit</small></a>
                         {% if request.user.is_superuser  %}
-                        <a class="text-danger" href="#"><small>Delete</small></a>
+                        <a class="text-danger" href="{% url 'delete_review' product.asin review.id %}"><small>Delete</small></a>
                         {% endif %}
                     </div>
                     {% endif %}

@@ -66,12 +66,15 @@ def edit_review(request, product_id, review_id):
                     form = form.save(commit=False)
                     form.save()
                     messages.success(request, 'Your review was successfully edited!')
-                    return redirect('view_prodic', product_id)
+                    return redirect('product_detail', product_id)
             else:
                 form = ProductReviewForm(instance=review)
-            return render(request, 'reviews/edit_review.html', {'form':form})
+                context = {
+                    'form': form
+                }
+            return render(request, 'reviews/edit_review.html', context)
         else:
-            messages.error(request, 'You can only edit the reviews added by you.')
+            messages.error(request, 'You can only edit your own reviews.')
             return redirect('product_detail', product_id)
     else:
         return redirect('home')
@@ -80,7 +83,7 @@ def edit_review(request, product_id, review_id):
 @login_required
 def delete_review(request, product_id, review_id):
     """
-    Here is the add review function which handles the way reviews are deleted
+    Here is the delete review function which handles the way reviews are deleted
     """
     if request.user.is_authenticated:
         product = Product.objects.get (pk=product_id)
@@ -90,6 +93,6 @@ def delete_review(request, product_id, review_id):
             review.delete()
             messages.success(request, 'Your review was successfully deleted.')
 
-        return redirect('view_product', product_id)
+        return redirect('product_detail', product_id )
     else:
         return redirect('home')
