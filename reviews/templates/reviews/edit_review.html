@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<h1>Edit review:</h1>
+
+<div class="container">
+    <form method="POST", action="{% url 'edit_review' review.id %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Edit Review">
+
+    </form>
+</div>
+
+{% endblock %}
