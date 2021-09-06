@@ -4,10 +4,14 @@ from gadget.models import Product
 
 
 def view_cart(request):
+    """
+    A view to render the cart
+    """
     return render(request, "cart/view_cart.html")
 
 
 def add_cart(request, product_id):
+    """View to add the products to the cart"""
     product = Product.objects.get(asin=product_id)
     quantity = int(request.POST.get("quantity"))
     redirect_url = request.POST.get("redirect_url")
@@ -24,7 +28,7 @@ def add_cart(request, product_id):
 
 
 def edit_cart(request, product_id):
-    """ Adjust the quantity of the specified product to the shopping bag """
+    """ Adjust the quantity of the specified product to the cart """
 
     product = get_object_or_404(Product, asin=product_id)
     quantity = int(request.POST.get('quantity'))
@@ -47,7 +51,7 @@ def edit_cart(request, product_id):
 
 
 def subtract_from_cart(request, product_id):
-    """Remove item from the shopping bag """
+    """Remove item from the cart """
     product = get_object_or_404(Product, asin=product_id)
 
     try:
