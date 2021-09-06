@@ -7,6 +7,7 @@ from checkout.models import Order
 
 
 def profile(request):
+    """This view enables the user to update the save default save information"""
     profile = get_object_or_404(UserAccount, user=request.user)
     if request.method == 'POST':
         form = UserAccountForm(request.POST, instance=profile)
@@ -31,6 +32,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """This view gives details of previous orders of specific user"""
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
