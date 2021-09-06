@@ -7,6 +7,7 @@ from reviews.models import ProductReview
 
 
 def view_category(request):
+    """This view returns a list of categories"""
     categories = Category.objects.all()
     context = {
         'categories': categories
@@ -15,6 +16,7 @@ def view_category(request):
 
 
 def view_product(request):
+    """This view renders the product template"""
     products = Product.objects.all()
     query = None
     categories = None
@@ -41,6 +43,7 @@ def view_product(request):
 
 
 def product_detail(request, product_id):
+    """This view renders the details of the product"""
     is_favourite = False
     product = get_object_or_404(Product, asin=product_id)
     form = ProductReviewForm()

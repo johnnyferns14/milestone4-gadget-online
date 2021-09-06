@@ -9,6 +9,7 @@ from .forms import ProductReviewForm
 
 
 def view_review(request, product_id):
+    """This view renders the list of reviews for a particular product"""
     product = get_object_or_404(Product, asin=product_id)
     reviews = ProductReview.objects.filter(product=product_id)
     context = {
@@ -21,7 +22,7 @@ def view_review(request, product_id):
 
 def add_review(request, product_id):
     """
-    Here is the add review function which handles the way reviews are added 
+    Here is the add review function which handles the way reviews are added
     """
     if request.user.is_authenticated:
         product = Product.objects.get(asin=product_id)
@@ -50,13 +51,14 @@ def add_review(request, product_id):
     }
     return render(request, 'reviews/add_review.html', context)
 
+
 @login_required
 def edit_review(request, product_id, review_id):
     """
-    Here is the edit review function which handles the way added reviews are edited 
+    Here is the edit review function which handles the editing of reviews
     """
     if request.user.is_authenticated:
-        product = Product.objects.get (asin=product_id)
+        product = Product.objects.get(asin=product_id)
         review = ProductReview.objects.get(product=product, pk=review_id)
 
         if request.user.userprofile == review.author:
@@ -65,7 +67,8 @@ def edit_review(request, product_id, review_id):
                 if form.is_valid():
                     form = form.save(commit=False)
                     form.save()
-                    messages.success(request, 'Your review was successfully edited!')
+                    messages.success(request,
+                                     'Your review was successfully edited!')
                     return redirect('product_detail', product_id)
             else:
                 form = ProductReviewForm(instance=review)
@@ -83,7 +86,7 @@ def edit_review(request, product_id, review_id):
 @login_required
 def delete_review(request, product_id, review_id):
     """
-    Here is the delete review function which handles the way reviews are deleted
+   The delete review function handles the way reviews are deleted
     """
     if request.user.is_authenticated:
         product = Product.objects.get (pk=product_id)
@@ -93,6 +96,6 @@ def delete_review(request, product_id, review_id):
             review.delete()
             messages.success(request, 'Your review was successfully deleted.')
 
-        return redirect('product_detail', product_id )
+        return redirect('product_detail', product_id)
     else:
         return redirect('home')
