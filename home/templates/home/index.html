@@ -2,23 +2,44 @@
 {% load static %}
 
 
-
-
 {% block heroimage %}
 <div class="hero-image-wrapper">
-    <img src="{% static 'home/images/gadget-hero.jpeg' %}" alt="hero-image">
+    <img class="img-fluid" src="{% static 'home/images/hero-appliance1.jpg' %}" alt="hero-image">
+    <h2 class="hero-text-style">Gadgets for all your needs</h2>
+    <a class="" href="{% url 'view_product' %}">BUY NOW</a>
 </div>
 
 {% endblock %}
 
 <!-- Viewing products by category -->
+
+
 {% block content %}
 
-
-
-<div>
-    <a href="{% url 'view_product' %}">BUY NOW</a>
+    <div class="container-fluid">
+        {% for category in categories %}
+        <div class="row">
+            <h3>Most Popular {{ category.name }}s</h3>
+                {% for product in category.products.all %}
+                <div class="card shadow gadget-custom-card mt-5">
+                    <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ product.title }}</h4>
+                        <small class="card-text">.</small>
+                    </div>
+                </div>
+                {% endfor %}
+            
+            
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+    
 </div>
+
+
 
 
 {% endblock %}

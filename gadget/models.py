@@ -10,7 +10,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.ForeignKey(
-        Category, on_delete=models.CASCADE, related_name='category_name')
+        Category, on_delete=models.CASCADE, related_name='products')
     title = models.CharField(max_length=50, null=False, blank=False)
     description = models.TextField(blank=False, null=False)
     asin = models.CharField(
