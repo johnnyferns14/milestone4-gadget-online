@@ -39,12 +39,12 @@
             </tr>
                 {% endfor %}
             <tr >
-            <td class="text-right">
-                <h6>Total: {{ total|floatformat:2 }}</h6>
+            <td colspan="5" class="text-right">
+                <h6><strong>Total: {{ total|floatformat:2 }}</strong</h6>
                 <h6>Delivery: {{ delivery|floatformat:2 }}</h6>
-                <h6>Grand Total: {{ grand_total|floatformat:2 }}</h6>
+                <h4>Grand Total: {{ grand_total|floatformat:2 }}</h4>
                 {% if free_delivery_target > 0 %}
-                <p>You need to spend more {{ free_delivery_target }} to avail free delivery. </p>
+                    <p class="text-danger">You need to spend more {{ free_delivery_target }} to avail free delivery. </p>
                 {% endif %}
             </td>
             
