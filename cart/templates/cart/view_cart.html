@@ -1,4 +1,5 @@
 {% extends 'home/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -19,6 +20,7 @@
             </tr>
         </thead>
         <tbody>
+            {{ cart_items }}
             {%for item in cart_items%}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
@@ -32,6 +34,35 @@
                     <p>{{ item.product.price }}</p>
                 </td>
                 <td>
+                    <form method="POST", action="{% url 'edit_cart' item.product_id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="bag-input-group">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty btn btn-outline-dark" 
+                                        data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product_id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>  
+                                <input class="form-control form-control-sm qty_input" type="number"
+                                    name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                    data-item_id="{{ item.product_id }}"
+                                    id="id_qty_{{ item.product_id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn btn-outline-dark"
+                                        data-item_id="{{ item.product_id }}" id="increment-qty_{{ item.product_id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                    </form>
+                    <a class="update-link" href="#" >Edit</a>
+                    <a class="remove-item float-right" id="remove_{{ item.product_id }}" href="#" >Delete</a>
                     <p>{{ item.quantity }}</p>
                 </td>
                 <td>
@@ -64,5 +95,25 @@
     <p>Your bag is empty</p>
     {% endif %}
 </div>
+
+{% endblock %}
+
+{% block postloadjs %} 
+{{ block.super }}
+{% include 'cart/includes/bag-quantity-input-script.html' %}
+
+<script type="text/javascript">
+  // Remove item and reload on click
+  $(".remove-item").click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr("id").split("remove_")[1];
+    var url = `/cart/remove/${itemId}/`;
+    var data = { csrfmiddlewaretoken: csrfToken };
+
+    $.post(url, data).done(function () {
+      location.reload();
+    });
+  });
+</script>
 
 {% endblock %}

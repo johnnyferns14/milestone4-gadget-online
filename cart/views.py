@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
 from django.contrib import messages
 from gadget.models import Product
 
@@ -22,6 +22,7 @@ def add_cart(request, product_id):
     print(request.session["cart"])
     return redirect(redirect_url)
 
+
 def edit_cart(request, product_id):
     """ Adjust the quantity of the specified product to the shopping bag """
 
@@ -31,12 +32,14 @@ def edit_cart(request, product_id):
 
     if quantity > 0:
 
-        cart[item_id] = quantity
-        messages.success(request, f'Updated {product.title} quantity to the {cart[product_id]}')
+        cart[product_id] = quantity
+        messages.success(
+            request, f'Updated {product.title} quantity to the {cart[product_id]}')
 
     else:
         cart.pop(product_id)
-        messages.success(request, f'Removed {product.title} from your shopping cart')
+        messages.success(
+            request, f'Removed {product.title} from your shopping cart')
 
     request.session['cart'] = cart
 
@@ -50,8 +53,8 @@ def subtract_from_cart(request, product_id):
     try:
         cart = request.session.get('cart', {})
         cart.pop(product_id)
-        messages.success(request, f'Removed {product.title} from your shopping cart')
-
+        messages.success(
+            request, f'Removed {product.title} from your shopping cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
