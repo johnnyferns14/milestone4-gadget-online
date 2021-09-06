@@ -1,6 +1,10 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
 {% block content %}
 
 
@@ -20,7 +24,6 @@
             </tr>
         </thead>
         <tbody>
-            {{ cart_items }}
             {%for item in cart_items%}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
@@ -42,7 +45,7 @@
                                     <button class="decrement-qty btn btn-outline-dark" 
                                         data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product_id }}">
                                         <span class="icon">
-                                            <i class="fas fa-minus fa-sm"></i>
+                                            <i class="fa fa-minus fa-sm"></i>
                                         </span>
                                     </button>
                                 </div>  
@@ -54,16 +57,15 @@
                                     <button class="increment-qty btn btn-outline-dark"
                                         data-item_id="{{ item.product_id }}" id="increment-qty_{{ item.product_id }}">
                                         <span class="icon">
-                                            <i class="fas fa-plus fa-sm"></i>
+                                            <i class="fa fa-plus fa-sm"></i>
                                         </span>
                                     </button>
                                 </div>
                                 
                             </div>
                     </form>
-                    <a class="update-link" href="#" >Edit</a>
-                    <a class="remove-item float-right" id="remove_{{ item.product_id }}" href="#" >Delete</a>
-                    <p>{{ item.quantity }}</p>
+                    <a class="update-link"><small>Update</small></a>
+                    <a class="remove-item float-right" id="remove_{{ item.product_id }}"><small>Delete</small></a>
                 </td>
                 <td>
                     <p>{{total|floatformat:2}}</p>

@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 
-body{
+/* body{
     background-color: #343a40!important;
     color: #ffffff
     
-}
+} */
 
 .font-navbar{
     /* font-family: 'Black Ops One', cursive; */
@@ -18,9 +18,9 @@ body{
     color: rgb(204, 85, 0, .5)
 } */
 
-.navbar-color{
+/* .navbar-color{
     background-color: rgb(204, 85, 0)
-}
+} */
 
 .hero-image-wrapper{
     max-width: 100%;

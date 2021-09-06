@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {% block extracss %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
     {% endblock %}
 
 
@@ -28,7 +27,7 @@
 <body>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark font-navbar navbar-color">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark font-navbar navbar-color">
         <a class="navbar-brand" href="{% url 'home' %}">GADGET-360</a>
         <div class="col-md-6 text-center">
             <form class="form-inline" method="GET" action="{% url 'view_product' %}">
