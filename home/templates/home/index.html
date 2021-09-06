@@ -1,12 +1,16 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
-
 {% block heroimage %}
-<div class="hero-image-wrapper">
-    <img class="img-fluid" src="{% static 'home/images/hero-appliance1.jpg' %}" alt="hero-image">
-    <h2 class="hero-text-style">Gadgets for all your needs</h2>
-    <a class="" href="{% url 'view_product' %}">BUY NOW</a>
+<div class="container-fluid">
+    <div class="hero-image-wrapper">
+        <img class="img-fluid" src="{% static 'home/images/hero-appliance1.jpg' %}" alt="hero-image">
+        <div class="top-left">
+            <h1 class="hero-text-style">Gadgets for</h2>
+            <h1 class="hero-text-style">all your needs</h2>
+            <a class="hero-text-style" href="{% url 'view_product' %}">BUY NOW</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

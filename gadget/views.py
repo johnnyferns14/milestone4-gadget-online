@@ -4,7 +4,6 @@ from django.db.models import Q
 from .models import Category, Product
 from reviews.forms import ProductReviewForm
 from reviews.models import ProductReview
-from useraccount.models import UserAccount
 
 
 def view_category(request):
@@ -42,18 +41,19 @@ def view_product(request):
 
 
 def product_detail(request, product_id):
-    
+    is_favourite = False
     product = get_object_or_404(Product, asin=product_id)
     form = ProductReviewForm()
     reviews = ProductReview.objects.filter(product=product_id)
 
-    
+    if product.wished_for.filter(id=request.user.id).exists():
+        is_favourite = True
 
     context = {
         'product': product,
         'reviews': reviews,
         'form': form,
-        
+        'is_favourite': is_favourite
 
     }
     return render(request, 'gadget/product_detail.html', context)
