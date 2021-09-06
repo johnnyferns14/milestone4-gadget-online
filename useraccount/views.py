@@ -54,6 +54,8 @@ def add_category(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Category added successfully.')
+        else:
+            messages.error(request, 'Sorry the category could not be added')
     else:
         form = CategoryForm()
     context = {'form': form}
@@ -65,7 +67,10 @@ def update_category(request, category_id):
     form = CategoryForm(request.POST or None, instance=category)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Category successfully updated.')
         return redirect('view_category')
+    else:
+        messages.error(request, 'Sorry, category updation unsuccessful.')
     context = {
         'category': category,
         'form': form
@@ -77,14 +82,18 @@ def update_category(request, category_id):
 def delete_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     category.delete()
+    messages.success(request, 'Category deleted successfully.')
     return redirect('view_category')
 
 
 def add_product(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Product added successfully.')
+        else:
+            messages.error(request, 'Sorry, could not add the product')
     else:
         form = ProductForm()
     context = {'form': form}
@@ -96,7 +105,10 @@ def update_product(request, product_id):
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
-        return redirect('view_product')
+        messages.success(request, 'Product updation success.')
+        return redirect('product_detail', args=[product.asin])
+    else:
+        messages.error(request, 'Sorry, product updation failed.')
     context = {
         'product': product,
         'form': form
@@ -107,4 +119,5 @@ def update_product(request, product_id):
 def delete_product(request, product_id):
     product = Product.objects.get(asin=product_id)
     product.delete()
+    messages.success(request, 'Product successfully deleted.')
     return redirect('view_product')

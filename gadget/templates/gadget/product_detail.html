@@ -16,6 +16,12 @@
         </div>
         <div class="col-md-5">
             <h4>{{ product.title }}</h4>
+            {% if request.user.is_superuser%}
+                <div>
+                    <a href="{% url 'update_product' product.asin %}">Edit</a>
+                    <a href="{% url 'delete_product' product.asin %}">Delete</a>
+                </div>
+            {% endif %}
             <h6>{{ product.description }}</h6>
             <p>ASIN: {{ product.asin }}</p>
             <h6>Price: {{ product.price }}</h6>

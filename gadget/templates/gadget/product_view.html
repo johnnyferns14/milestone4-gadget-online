@@ -21,6 +21,12 @@
                     <h4 class="card-title">{{ product.title }}</h4>
                     <small class="card-text">.</small>
                 </div>
+                {% if request.user.is_superuser%}
+                    <div>
+                        <a href="{% url 'update_product' product.asin %}">Edit</a>
+                        <a href="{% url 'delete_product' product.asin %}">Delete</a>
+                    </div>
+                {% endif %}
             </div>
         </a>
         {% endfor %}
