@@ -29,10 +29,7 @@
 } */
 
 .hero-image-wrapper{
-  border: solid 1px red;
   max-height: 600px;
-  overflow: hidden;
-  
 }
 
 .hero-text-style{
@@ -40,10 +37,16 @@
 
 }
 
+.container-text {
+  position: relative;
+}
+
 .top-left {
   position: absolute;
-  top: 200px;
-  left: 50px;
+  top: 125px;
+  left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .hero-image-wrapper img{
   width: 100%;
@@ -67,52 +70,6 @@
     color: #fe5610;
     background-color: #fff;
     border-color: #fe5610;
-}
-
-.hide-reveal{
-  padding: 8px;
-  width: 8rem;
-  background-color: orange;
-  
-}
-
-.hide-reveal:hover{
-  display: none;
-  transition: 5s ease-in;
-}
-
-.login-wrapper{
-  width: 500px;
-  height: 300px;
-  position: fixed;
-  top: 60px;
-  right: -460px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-/*   border: 3px solid red; */
-  padding: 0;
-}
-
-.login-btn{
-  height: 150px;
-  width: 50px;
-  border: 2px solid yellow;
-  
-}
-
-.vertical-writing{
-/*   transform: rotate(-90deg); */
-  writing-mode: vertical-rl;
-  font-weight: bolder;
-  cursor: pointer;
-}
-
-.login-page-reveal{
-  right: 10px;
-  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.2));
-  transition: ease in-out 10s;
-  
 }
 
 .custom-badge{

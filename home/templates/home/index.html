@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block heroimage %}
-<div class="container-fluid">
-    <div class="hero-image-wrapper">
+<div class="container-fluid px-0">
+    <div class="hero-image-wrapper container-text">
+        
         <img class="img-fluid" src="{% static 'home/images/hero-appliance1.jpg' %}" alt="hero-image">
         <div class="top-left">
             <h1 class="hero-text-style">Gadgets for</h2>
             <h1 class="hero-text-style">all your needs</h2>
-            <a class=" nav-link hero-text-style" href="{% url 'view_product' %}">BUY NOW</a>
+            <a class=" btn btn-orange my-2" href="{% url 'view_product' %}">BUY NOW</a>
         </div>
+        
     </div>
 </div>
 
@@ -20,16 +22,15 @@
 
 {% block content %}
 
-
-<div class="container-fluid mb-5">
+<div class="container-fluid my-4">
     {% for category in categories%}
     <h3>Most Popular {{ category.name }}s</h3>
-    <div class="row card-row">
+    <div class="row">
         {% if category.products.all|length <= 3 %}
         {% for product in category.products.all %}
     
         <a class="nav-link" href="{% url 'product_detail' product.asin %}">
-            <div class="card shadow gadget-custom-card mt-5">
+            <div class="card shadow gadget-custom-card mb-3">
                 <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
                 <div class="card-body">
                     <h4 class="card-title">{{ product.title }}</h4>

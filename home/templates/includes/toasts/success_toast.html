@@ -8,7 +8,7 @@
         </button>
         {% if grand_total > 0%}
         <div class="btn-wrapper">
-            <a href="{% url 'view_cart' %}" class="btn btn-primary ms-5">
+            <a href="{% url 'view_cart' %}" class="btn btn-orange ms-5">
                 <span class="btn-text">Bag View</span>
             </a>
         </div>
@@ -23,7 +23,7 @@
             
         </div>
         {% if grand_total and not on_profile_page %}
-            <p class="logo-font bg-light text-dark py-1">Your Bag ({{ product_count }})</p>
+            <p class="logo-font bg-light text-dark py-1">Your Bag ({{ item_count }})</p>
             <div class="bag-notification-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
@@ -48,11 +48,11 @@
                         <span class="float-right">£{{ total|floatformat:2 }}</span>
                     </p></strong>
                     {% if total < 15 %}
-                        <a href="{% url 'products' %}" class="btn bag-checkout-card-btn">
+                        <a href="{% url 'products' %}" class="btn btn-orange-border">
                             <span class="text-danger">Min spend £15</span>
                         </a>
                     {% else %}
-                        <a href="{% url 'checkout' %}" class="btn checkout-card-btn">
+                        <a href="{% url 'checkout' %}" class="btn btn-orange">
                             <span class="text-uppercase">Go To Secure Checkout</span>
                             <span class="icon">
                                 <i class="fa fa-lock"></i>
