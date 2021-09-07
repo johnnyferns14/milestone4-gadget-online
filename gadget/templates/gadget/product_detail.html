@@ -20,7 +20,7 @@
             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}" />
             </a>
             {% endif %}
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <h4>{{ product.title }}</h4>
                 {% if request.user.is_superuser%}
                 <div>
@@ -55,62 +55,53 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- Section to review the product -->
-
+<div class="container-fluid">
     <div class="row my-5">
-        <div class="col-sm-12 col-md-5 mx-2">
-            <div>
-                <h4>What do you feel about this product? Leave a review.</h4>
-                <hr>
-                <div class="col-12">
-                    {% if request.user.is_authenticated %}
-                    <form action="{% url 'add_review' product.asin %}" method="POST">
-                        {% csrf_token %}
-                        {{ form| crispy }}
-                        <div class="text-right mt-3">
-                            <a class="btn btn-orange-border " href="{% url 'product_detail' product.asin %}">Cancel</a>
-                            <button class="btn btn-orange ms-1" type="submit">Add Review</button>
-                            {% else %}
-                            <p>Please <a href="{% url 'account_login' %}">login</a> to post a review</p>
-                        </div>
-                    </form>
-                    {% endif %}
+        <div class="col-sm-12 col-md-6">
+            <h4>What do you feel about this product? Leave a review.</h4>
+            <hr>
+            {% if request.user.is_authenticated %}
+            <form action="{% url 'add_review' product.asin %}" method="POST">
+                {% csrf_token %}
+                {{ form| crispy }}
+                <div class="text-right mt-3">
+                    <a class="btn btn-orange-border " href="{% url 'product_detail' product.asin %}">Cancel</a>
+                    <button class="btn btn-orange ms-1" type="submit">Add Review</button>
                 </div>
-            </div>
+            </form>
+            {%else%}
+            <p class="text-center my-5 text-muted">Please <a href="{% url 'account_login' %}">login</a>  to review.</p>
+            {% endif %}
         </div>
-        <div class="col-sm-12 col-md-5 mx-2 py-1">
-            <div>
-                <h4 class="text-center">What our customers say</h4>
-                {% if reviews %}
+        <div class="col-sm-12 col-md-6 py-1">
+            <h4 class="text-center">What our customers say</h4>
+            {% if reviews %}
                 {% for review in reviews %}
-                <div>
-                    <div class="border mx-1 my-2 px-2">
-                        <div>
-                            <p>On {{ review.date_created|date:'d M Y'}} {{review.author}} says:</p>
-                            <h4>
-                                {{review.review_title}}
-                            </h4>
-                            <p>{{review.review_body}}</p>
-                        </div>
-
-                        {% if request.user.is_authenticated  %}
-                        <div class="mr-auto">
-                            <a href="{% url 'edit_review' product.asin review.id %}"><small>Edit</small></a>
-                            {% if request.user.is_superuser  %}
-                            <a class="text-danger"
-                                href="{% url 'delete_review' product.asin review.id %}"><small>Delete</small></a>
-                            {% endif %}
-                        </div>
+                <div class="border mx-1 my-2 px-2">
+                    <p>On {{ review.date_created|date:'d M Y'}} {{review.author}} says:</p>
+                    <h4>
+                        {{review.review_title}}
+                    </h4>
+                    <p>{{review.review_body}}</p>
+                    {% if request.user.is_authenticated  %}
+                    <div class="mr-auto">
+                        <a href="{% url 'edit_review' product.asin review.id %}"><small>Edit</small></a>
+                        {% if request.user.is_superuser  %}
+                        <a class="text-danger"
+                            href="{% url 'delete_review' product.asin review.id %}"><small>Delete</small>
+                        </a>
                         {% endif %}
                     </div>
+                    {% endif %}
                 </div>
                 {% endfor %}
-                {% else %}
-                <p class="text-center my-5 text-muted">No reviews found for this product yet.</p>
-                {% endif %}
-            </div>
+            {% else %}
+            <p class="text-center my-5 text-muted">No reviews found for this product yet.</p>
+            {% endif %}
         </div>
     </div>
+</div>
 
-    {% endblock %}
+{% endblock %}
