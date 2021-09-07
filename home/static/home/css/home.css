@@ -2,31 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 
-/* body{
-    background-color: #343a40!important;
-    color: #ffffff
-    
-} */
-
 .font-navbar{
-    /* font-family: 'Black Ops One', cursive; */
     font-family: 'Electrolize', sans-serif;
     font-size: 16px;
 }
 
 .font-hero-text{
-  /* font-family: 'Black Ops One', cursive; */
   font-family: 'Electrolize', sans-serif;
   font-size: 18px;
 }
 
-/* .navbar-dark .navbar-nav .nav-link {
-    color: rgb(204, 85, 0, .5)
-} */
-
-/* .navbar-color{
-    background-color: rgb(204, 85, 0)
-} */
 
 .hero-image-wrapper{
   max-height: 600px;
@@ -34,6 +19,7 @@
 
 .hero-text-style{
   text-transform: uppercase;
+  font-size: 28px;
 
 }
 
@@ -83,5 +69,14 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+@media screen and (max-width: 920px) {
+  .top-left {
+    top: 35px;
+    left: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
