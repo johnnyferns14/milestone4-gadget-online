@@ -120,3 +120,11 @@
     line-height: 0.75;
 }
 
+.custom-toast{
+  overflow: visible;
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+

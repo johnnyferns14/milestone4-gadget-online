@@ -1,15 +1,15 @@
-<div class="toast custom-toast rounded-0 border-top-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+<div class="toast custom-toast rounded-0 border-top-0 ml-auto" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header bg-white text-dark ">
-        <strong class="mr-auto fs-4">Success!</strong>
-        <button type="button" class="ms-3 mb-1 close text-dark" data-bs-dismiss="toast" aria-label="Close">
+        <strong class="ml-auto fs-4">Success!</strong>
+        <button type="button" class="ms-3 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         {% if grand_total > 0%}
         <div class="btn-wrapper">
-            <a href="{% url 'view_cart' %}" class="btn checkout-card-btn ms-5">
-                <span class="btn-text">Cart View</span>
+            <a href="{% url 'view_cart' %}" class="btn btn-primary ms-5">
+                <span class="btn-text">Bag View</span>
             </a>
         </div>
         {% endif %}
@@ -23,9 +23,9 @@
             
         </div>
         {% if grand_total and not on_profile_page %}
-            <p class="logo-font bg-light text-dark py-1">Your Cart ({{ product_count }})</p>
+            <p class="logo-font bg-light text-dark py-1">Your Bag ({{ product_count }})</p>
             <div class="bag-notification-wrapper">
-                {% for item in bag_items %}
+                {% for item in cart_items %}
                     <div class="row">
                         <div class="col-3 my-1">
                             {% if item.product.image %}
@@ -55,7 +55,7 @@
                         <a href="{% url 'checkout' %}" class="btn checkout-card-btn">
                             <span class="text-uppercase">Go To Secure Checkout</span>
                             <span class="icon">
-                                <i class="fas fa-lock"></i>
+                                <i class="fa fa-lock"></i>
                             </span>
                         </a>
                     {% endif %}
