@@ -1,11 +1,11 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-<p>Prodct update Page</p>
+<p>Product update Page</p>
 
 <form method="POST" action="{% url 'update_product' product.asin %}">
     {% csrf_token%}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" name="Update Product">
 </form>
 

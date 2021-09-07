@@ -103,14 +103,21 @@ def add_product(request):
 
 
 def update_product(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     product = Product.objects.get(asin=product_id)
-    form = ProductForm(request.POST or None, instance=product)
-    if form.is_valid():
-        form.save()
-        messages.success(request, 'Product updation success.')
-        return redirect('product_detail', args=[product.asin])
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updation success.')
+            return redirect('view_product')
+        else:
+            messages.error(request, 'Sorry, product updation failed.')
     else:
-        messages.error(request, 'Sorry, product updation failed.')
+        form = ProductForm(instance=product)
     context = {
         'product': product,
         'form': form
