@@ -6,7 +6,7 @@
 <form method="POST" action="{% url 'update_product' product.asin %}">
     {% csrf_token%}
     {{ form|crispy }}
-    <input type="submit" name="Update Product">
+    <input class="btn btn-orange" type="submit" name="Update Product">
 </form>
 
 {% endblock %}

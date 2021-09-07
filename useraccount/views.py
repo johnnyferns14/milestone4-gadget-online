@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from gadget.models import Category, Product
 from .forms import CategoryForm, ProductForm, UserAccountForm
@@ -49,6 +51,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+@login_required
 def add_category(request):
     category = Category.objects.all()
     if request.method == 'POST':
@@ -64,6 +67,7 @@ def add_category(request):
     return render(request, 'useraccount/add_category.html', context)
 
 
+@login_required
 def update_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     form = CategoryForm(request.POST or None, instance=category)
@@ -81,6 +85,7 @@ def update_category(request, category_id):
     return render(request, 'useraccount/update_category.html', context)
 
 
+@login_required
 def delete_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     category.delete()
@@ -88,6 +93,7 @@ def delete_category(request, category_id):
     return redirect('view_category')
 
 
+@login_required
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -102,6 +108,7 @@ def add_product(request):
     return render(request, 'useraccount/add_product.html', context)
 
 
+@login_required
 def update_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -125,6 +132,7 @@ def update_product(request, product_id):
     return render(request, 'useraccount/update_product.html', context)
 
 
+@login_required
 def delete_product(request, product_id):
     product = Product.objects.get(asin=product_id)
     product.delete()
