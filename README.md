@@ -118,3 +118,134 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
 -   [PEP8 Compliance](http://pep8online.com/) - [Results]()
 
+### Testing User Stories from User Experience (UX) Section
+
+-   #### First Time Visitor Goals
+
+    -   #### First Time Visitor Goals
+
+        1. As a First Time Visitor, I want to want to make sure that I get the information I want based on the site description.
+            - Entering the website, the visitor is presented with the navbar that shows links to the home, login and sign up page. Below are the list of the recipies already added to the site. Also there is a search and sort section where the user can get the specific recipes based on his/her preference.
+
+        2. As a First Time Visitor, I want to be able to easily navigate throughout the site easily to find content I am looking for.
+            - The website is navigation friendly. The user can easily move from one page to another.
+
+        3. As a First Time Visitor, I want to be able to sign up to be able to access the members area of the site.
+            - By clicking 'Sign Up' on the navigation bar link, the user is directed to the sign up page where they can enter their name, email id and password to register themselves.
+
+        4. As a first time visitor, I want to be able to add my own content to the website.
+            - Once the user is registered and logged in, they can enter their own recipes in the 'Add recipe' section that shows up in the navigation bar once logged in.
+
+
+        5. As a first time visitor, I want to be able to easily login and logout from the site.
+            - The login and logout process is very simple. To log in, the user has to only enter their registered email id and password and click on the login button. To logout, they just need to click on the 'Logout' link on the navigation page which is visible only once logged in.
+
+        6. As a first time user, I want to be able to use the website on all devices.
+            - The website is responsive on all devices. The elements on the page adjust/resize automatically on different devices.
+
+
+    -   #### Returning Visitor Goals
+
+        1. As a Returning Visitor, I want to be able to view the list of recipes.
+            - The users can easily vies the available recipes on the homepage. They can also search for recipes they like or even sort them by title.
+
+        2. As a Returning Visitor, I want to be able to view details of every recipe.
+            - On the list of recipe cards, when the user clicks on the 'View Recipe' button, they are redirected to the recipe details page where they can view the ingredients used as well as he directions/method of cooking.
+
+        3. As a Returning Visitor, I want to be able to sort them by title for easy access.
+            - In the homepage itself, the user is able to sort the recipes they want by title.
+
+        4. As a Returning Visitor, I want to be able to search specific recipes based on a query.
+            - The user can search for recipes based on title or description by entering the search keyword in the search field that is present in the homepage.
+
+        5. As a Returning Visitor, I want to have access to my posts.
+            - Every user has a dedicated profile page which shows the list of their contributions.
+
+        6. As a Returning Visitor, I want to be the only one who is able to edit/update or delete my own posts.
+            - Only the user that has logged in can edit or delete their own recipes. No other user has the access to others recipes.
+
+        7. As a Returning Visitor, I want to find community links.
+            - At the footer, there are links to the social community links.
+
+
+### Further Testing
+
+-   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+-   The website was viewed on a variety of devices such as Desktop, Laptop & Samsung S20 Plus.
+-   A large amount of testing was done to ensure that all pages were linking correctly.
+-   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+### Known Bugs
+
+-   The delete button when clicked directly deletes the record. There is no mechanism added to confirm the delete function.
+
+
+
+## Deployment
+
+### GitHub Pages
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
+    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
+3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
+4. Under "Source", click the dropdown called "None" and select "Master Branch".
+5. The page will automatically refresh.
+6. Scroll back down through the page to locate the now published site [link](https://github.com) in the "GitHub Pages" section.
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/johnnyferns14/javascript-milestone-project-2
+```
+
+7. Press Enter. Your local clone will be created.
+
+```
+$ git clone https://github.com/johnnyferns14/javascript-milestone-project-2
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+## Credits
+
+- Codemy.net for the freely available and easily understandable youtube tutorials.
+- Code Institute course material which was also of great help.
+
+
+### Content
+
+-   All content was written by the developer.
+
+
+### Media
+
+-  The background image was freely available from the internet, taken specifically from [Zoom](https://explore.zoom.us/)
+
+### Acknowledgements
+
+-   My Mentors Medale Oluwafemi & Victor Miclovich for continuous helpful feedback.
+
+-   Tutor support at Code Institute for their support.
