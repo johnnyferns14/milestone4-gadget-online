@@ -7,24 +7,24 @@
 
 {% block content %}
 
-<p>Product Page</p>
+<p>Products</p>
 
 <hr>
 
 <div class="container mb-5">
     <div class="row card-row">
         {% for product in products %}
-        <a href="{% url 'product_detail' product.asin %}">
+        <a class="nav-link" href="{% url 'product_detail' product.asin %}">
             <div class="card shadow gadget-custom-card mt-5">
                 <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
                 <div class="card-body">
                     <h4 class="card-title">{{ product.title }}</h4>
-                    <small class="card-text">.</small>
+                    <p class="card-text">Price: £{{product.price}}</p>
                 </div>
                 {% if request.user.is_superuser%}
-                    <div>
-                        <a href="{% url 'update_product' product.asin %}">Edit</a>
-                        <a href="{% url 'delete_product' product.asin %}">Delete</a>
+                    <div class="d-flex flex-row">
+                        <a class="p-2" href="{% url 'update_product' product.asin %}">Edit</a>
+                        <a class="p-2" href="{% url 'delete_product' product.asin %}">Delete</a>
                     </div>
                 {% endif %}
             </div>

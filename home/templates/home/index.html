@@ -8,7 +8,7 @@
         <div class="top-left">
             <h1 class="hero-text-style">Gadgets for</h2>
             <h1 class="hero-text-style">all your needs</h2>
-            <a class="hero-text-style" href="{% url 'view_product' %}">BUY NOW</a>
+            <a class=" nav-link hero-text-style" href="{% url 'view_product' %}">BUY NOW</a>
         </div>
     </div>
 </div>
@@ -20,30 +20,28 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        {% for category in categories %}
-        <div class="row">
-            <h3>Most Popular {{ category.name }}s</h3>
-                {% for product in category.products.all %}
-                <div class="card shadow gadget-custom-card mt-5">
-                    <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
-                    <div class="card-body">
-                        <h4 class="card-title">{{ product.title }}</h4>
-                        <small class="card-text">.</small>
-                    </div>
+
+<div class="container-fluid mb-5">
+    {% for category in categories%}
+    <h3>Most Popular {{ category.name }}s</h3>
+    <div class="row card-row">
+        {% if category.products.all|length <= 3 %}
+        {% for product in category.products.all %}
+    
+        <a class="nav-link" href="{% url 'product_detail' product.asin %}">
+            <div class="card shadow gadget-custom-card mt-5">
+                <img src="{{ product.image.url }}" class="card-img-top image-style mt-2" alt="{{product.title}}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ product.title }}</h4>
+                    <p class="card-text">Price: £{{product.price}}</p>
                 </div>
-                {% endfor %}
-            
-            
-            
-        </div>
+            </div>
+        </a>
+        
         {% endfor %}
+        {% endif %}
     </div>
-    
-    
+    {% endfor %}
 </div>
-
-
-
 
 {% endblock %}

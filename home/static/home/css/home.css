@@ -59,14 +59,14 @@
 
 .btn-orange {
     color: #fff;
-    background-color: rgb(204, 85, 0);
-    border-color: rgb(204, 85, 0);
+    background-color: #fe5610;
+    border-color: #fe5610;
 }
 
 .btn-orange-border {
-    color: rgb(204, 85, 0);
+    color: #fe5610;
     background-color: #fff;
-    border-color: rgb(204, 85, 0);
+    border-color: #fe5610;
 }
 
 .hide-reveal{

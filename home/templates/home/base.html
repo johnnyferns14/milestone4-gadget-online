@@ -29,11 +29,12 @@
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark font-navbar navbar-color">
-        <a class="navbar-brand" href="{% url 'home' %}">GADGET-360</a>
+        <a class="navbar-brand" href="{% url 'home' %}">GADGET360</a>
         <div class="col-md-6 text-center">
             <form class="form-inline" method="GET" action="{% url 'view_product' %}">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-orange my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -43,7 +44,8 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link color-navbar" href="{% url 'home' %}">HOME<span class="sr-only">(current)</span></a>
+                    <a class="nav-link color-navbar" href="{% url 'home' %}">HOME<span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -81,7 +83,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-lg fa fa-shopping-cart"
                             aria-hidden="true"></i>
-                        <span class="badge rounded-pill badge-danger custom-badge">{{ item_count }}</span></a>
+                        {% if item_count > 0 %}
+                        <span class="badge rounded-pill badge-danger custom-badge">{{ item_count }}</span>
+                        {% endif %}
+                    </a>
                 </li></a>
             </ul>
         </div>
@@ -93,17 +98,17 @@
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/error_toast.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/warning_toast.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/success_toast.html' %}
-                {% else %}
-                    {% include 'includes/toasts/info_toast.html' %}
-                {% endif %}
-            {% endwith %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/error_toast.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/warning_toast.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/success_toast.html' %}
+        {% else %}
+        {% include 'includes/toasts/info_toast.html' %}
+        {% endif %}
+        {% endwith %}
         {% endfor %}
 
     </ul>
@@ -115,7 +120,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script src="https://js.stripe.com/v3/"></script>
 
 
