@@ -120,10 +120,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Testing User Stories from User Experience (UX) Section
 
- #### First Time Visitor Goals
-
-    #### First Time Visitor Goals
-
+#### First Time Visitor Goals
 
 1.  Understand the main purpose of the website - The website is easily navigable. All the necessary icons are located on the Homepage itself and there is ease in moving from page to page.
 2.  Able to register, be able to login and log out - The functionalities of adding, editing deleting & viewing items exists on the site.
@@ -188,13 +185,13 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 6. Type `git clone`, and then paste the URL you copied in Step 3.
 
 ```
-$ git clone https://github.com/johnnyferns14/javascript-milestone-project-2
+$ git clone
 ```
 
 7. Press Enter. Your local clone will be created.
 
 ```
-$ git clone https://github.com/johnnyferns14/javascript-milestone-project-2
+$ git clone 
 > Cloning into `CI-Clone`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
