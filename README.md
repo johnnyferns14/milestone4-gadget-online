@@ -4,6 +4,8 @@ A live version of the site is available [LIVE SITE](https://heroku-milestone4-ga
 
 Gadget360 is an online gadget and electric appliances website where users can browse the different products, add to their shopping cart, remove what they do not need from the cart & totally empty it if required. Also, the users can make a wishlist as well as review products. This website is designed to be intuitive and easy to navigate and use, promoting a simple layout with effective and purposeful features.
 
+<h2 align="center"><img src=""></h2>
+
 
 User Experience (UX)
 User stories
@@ -30,9 +32,9 @@ User stories
 
 ## Design
     #### Colour Scheme
-    -   
+    -   The colors used for the website are orange and dark grey on a white background which gives more of a warm effect and the color combination is very soothing to the eye.
     #### Typography
-    -   
+    -   The Electrolize font has been used for this website as it gives the impression of a more modern website dealing with products from the future. 
     #### Imagery
     -   
 
@@ -60,8 +62,15 @@ User stories
 
 ## Project implementation
 
--   describe the website
+-   The Homepage: When the users click on the website link, they are taken directly to the homepage which provides them the option to click diretly from a product link displaed in its respective category. Also there is a call to action button (BUY NOW) which promps the user to click on it. The navigation has the Members Area which when clicked reveals a dropdown menu to sign up or login.
 
+- The Products page: The products page lists all the products available in the online shop. The users can search for a specific item by entering the search term in the search bar.
+
+- The Product details page: Once clicked on the product, the users can view the full product details as well as the option to add the item to the cart. On the same page, there is also an option for the users to leave any reviews about the product or view any reviews left by other users.
+
+- The Cart - The cart provides the users the ability to edit and delete items as per their requirement as well as a link to the checkout page.
+
+- At the checkout page, the users make payments via the stripe interface and their order number is generated thus confirming their purchase.
 
 ## Future implementation
 
@@ -82,7 +91,7 @@ User stories
 1. [Bootstrap4:](https://getbootstrap.com/)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
+    - Google fonts were used to import the 'Electrolize' font into the style.css file which is used for the navbar.
 3. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 4. [jQuery:](https://jquery.com/)
