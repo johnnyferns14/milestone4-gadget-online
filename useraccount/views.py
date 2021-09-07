@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -10,6 +10,7 @@ from checkout.models import Order
 
 def profile(request):
     """This view enables the user to update the save default save information"""
+    categories = Category.objects.all()
     profile = get_object_or_404(UserAccount, user=request.user)
     if request.method == 'POST':
         form = UserAccountForm(request.POST, instance=profile)
@@ -28,7 +29,8 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'categories': categories
     }
     return render(request, template, context)
 
@@ -69,14 +71,21 @@ def add_category(request):
 
 @login_required
 def update_category(request, category_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     category = Category.objects.get(pk=category_id)
-    form = CategoryForm(request.POST or None, instance=category)
-    if form.is_valid():
-        form.save()
-        messages.success(request, 'Category successfully updated.')
-        return redirect('view_category')
+    if request.method == "POST":
+        form = CategoryForm(request.POST or None, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category successfully updated.')
+            return redirect('view_category')
+        else:
+            messages.error(request, 'Sorry, category updation unsuccessful.')
     else:
-        messages.error(request, 'Sorry, category updation unsuccessful.')
+        form = CategoryForm(instance=category)
     context = {
         'category': category,
         'form': form

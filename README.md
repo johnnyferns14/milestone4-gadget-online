@@ -244,6 +244,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 -  The background image was freely available from the internet, taken specifically from [Zoom](https://explore.zoom.us/)
 
+- The media files for the products were copied from the Amazon website.
+
 ### Acknowledgements
 
 -   My Mentors Medale Oluwafemi & Victor Miclovich for continuous helpful feedback.
