@@ -4,11 +4,11 @@ A live version of the site is available [LIVE SITE](https://heroku-milestone4-ga
 
 Gadget360 is an online gadget and electric appliances website where users can browse the different products, add to their shopping cart, remove what they do not need from the cart & totally empty it if required. Also, the users can make a wishlist as well as review products. This website is designed to be intuitive and easy to navigate and use, promoting a simple layout with effective and purposeful features.
 
-<h2 align="center"><img src=""></h2>
+<h2 align="center"><img src="/workspace/milestone4-gadget-online/docs/gadget360.png"></h2>
 
 
-User Experience (UX)
-User stories
+### User Experience (UX)
+#### User stories
 
 **- First Time Visitor Goals:**
 1.  As a first time visitor, I want to easily understand the main purpose of the website.
@@ -40,13 +40,15 @@ User stories
 
 *   ### Wireframes
 
-    -   Home Page Wireframe - [View]()
-    -   Login Page Wireframe - [View]()
-    -   Registration Page Wireframe - [View]()
-    -   My Profile Page Wireframe - [View]()
-    -   Recipe Details Page Wireframe - [View]()
+    -   Home Page Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/home.png)
+    -   Login Page Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/user-login.png)
+    -   Registration Page Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/user-regn.png)
+    -   My Profile Page Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/profile.png)
+    -    Checkout Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/checkout.png)
+    -    Basket Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/basket.png)
+    -    Search Product Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/search.png)
+    -    Product Updation Wireframe - [View](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/product-updation.png)
 
-    -   Mobile Home Wireframes - [View]()
 
     - Information: The above wireframes were designed in the initial process. But as the project went on, changes were made to make every content look better and more attractive.
 
@@ -114,9 +116,8 @@ User stories
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
--   [PEP8 Compliance](http://pep8online.com/) - [Results]()
+-   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/css-validator.png)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnnyferns14/milestone4-gadget-online/tree/main/docs/css-validator.png)
 
 ### Testing User Stories from User Experience (UX) Section
 
