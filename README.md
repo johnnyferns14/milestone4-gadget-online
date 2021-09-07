@@ -120,52 +120,23 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Testing User Stories from User Experience (UX) Section
 
--   #### First Time Visitor Goals
+ #### First Time Visitor Goals
 
-    -   #### First Time Visitor Goals
-
-        1. As a First Time Visitor, I want to want to make sure that I get the information I want based on the site description.
-            - Entering the website, the visitor is presented with the navbar that shows links to the home, login and sign up page. Below are the list of the recipies already added to the site. Also there is a search and sort section where the user can get the specific recipes based on his/her preference.
-
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the site easily to find content I am looking for.
-            - The website is navigation friendly. The user can easily move from one page to another.
-
-        3. As a First Time Visitor, I want to be able to sign up to be able to access the members area of the site.
-            - By clicking 'Sign Up' on the navigation bar link, the user is directed to the sign up page where they can enter their name, email id and password to register themselves.
-
-        4. As a first time visitor, I want to be able to add my own content to the website.
-            - Once the user is registered and logged in, they can enter their own recipes in the 'Add recipe' section that shows up in the navigation bar once logged in.
+    #### First Time Visitor Goals
 
 
-        5. As a first time visitor, I want to be able to easily login and logout from the site.
-            - The login and logout process is very simple. To log in, the user has to only enter their registered email id and password and click on the login button. To logout, they just need to click on the 'Logout' link on the navigation page which is visible only once logged in.
+1.  Understand the main purpose of the website - The website is easily navigable. All the necessary icons are located on the Homepage itself and there is ease in moving from page to page.
+2.  Able to register, be able to login and log out - The functionalities of adding, editing deleting & viewing items exists on the site.
+3.  See all the products that the company deals with - There is a link which gives a view of all products on the website.
+4.  Search the products that I need from the many products that are available.
+5.  See the details of the product that I have selected.
+6.  CRUD Functionality -  add, edit, delete products to and from the shopping cart.
+7. Payment system - The most secure payment system provided by stripe has been integrated in the website.
 
-        6. As a first time user, I want to be able to use the website on all devices.
-            - The website is responsive on all devices. The elements on the page adjust/resize automatically on different devices.
+   #### Returning Visitor Goals
 
-
-    -   #### Returning Visitor Goals
-
-        1. As a Returning Visitor, I want to be able to view the list of recipes.
-            - The users can easily vies the available recipes on the homepage. They can also search for recipes they like or even sort them by title.
-
-        2. As a Returning Visitor, I want to be able to view details of every recipe.
-            - On the list of recipe cards, when the user clicks on the 'View Recipe' button, they are redirected to the recipe details page where they can view the ingredients used as well as he directions/method of cooking.
-
-        3. As a Returning Visitor, I want to be able to sort them by title for easy access.
-            - In the homepage itself, the user is able to sort the recipes they want by title.
-
-        4. As a Returning Visitor, I want to be able to search specific recipes based on a query.
-            - The user can search for recipes based on title or description by entering the search keyword in the search field that is present in the homepage.
-
-        5. As a Returning Visitor, I want to have access to my posts.
-            - Every user has a dedicated profile page which shows the list of their contributions.
-
-        6. As a Returning Visitor, I want to be the only one who is able to edit/update or delete my own posts.
-            - Only the user that has logged in can edit or delete their own recipes. No other user has the access to others recipes.
-
-        7. As a Returning Visitor, I want to find community links.
-            - At the footer, there are links to the social community links.
+1.  Leave reviews on the website - The review functionality exists in the product detail page. Youu will need to be logged in to review.
+2.  Order history - The order history can be viewed in the profile page and it gives all information regarding the product, quantity, price etc.
 
 
 ### Further Testing
@@ -177,8 +148,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
--   The delete button when clicked directly deletes the record. There is no mechanism added to confirm the delete function.
+-   The Add to Wishlist functionality was being worked on but could not be implemented.
+-   Sorting and filtering functionality not implemented.
 
+### Additional Information
+
+To access the admin, the username is testusermain and password is testuserpass123.
 
 
 ## Deployment

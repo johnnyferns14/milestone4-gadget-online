@@ -12,6 +12,14 @@
   font-size: 18px;
 }
 
+.card-center{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  justify-content: center;
+}
+
 
 .hero-image-wrapper{
   max-height: 600px;
