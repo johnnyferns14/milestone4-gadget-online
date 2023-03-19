@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from gadget.models import Category, Product
+from checkout.models import Order
 from .forms import CategoryForm, ProductForm, UserAccountForm
 from .models import UserAccount
-from checkout.models import Order
 
 
 def profile(request):
@@ -54,8 +53,9 @@ def order_history(request, order_number):
 
 
 @login_required
+@user_passes_test(lambda u: True if u.profile.role==2 else False)
 def add_category(request):
-    category = Category.objects.all()
+    # category = Category.objects.all()
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
@@ -109,6 +109,7 @@ def add_product(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Product added successfully.')
+            return redirect('home')
         else:
             messages.error(request, 'Sorry, could not add the product')
     else:
